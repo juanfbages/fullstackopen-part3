@@ -1,0 +1,33 @@
+{
+  "name": "fullstackopen-part3",
+  "version": "0.0.1",
+  "description": "Node Server Part 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ../fso-submissions/part2/phonebook/ && npm run build && cp -r build ../../../part3-submission",
+    "deploy": "heroku create jfb-fso-phonebook && git push heroku main",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+    "destroy": "heroku apps:destroy --confirm jfb-fso-phonebook",
+    "logs:prod": "heroku logs --tail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/juanfbages/fullstackopen-part3.git"
+  },
+  "author": "Juan F. Bages",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanfbages/fullstackopen-part3/issues"
+  },
+  "homepage": "https://github.com/juanfbages/fullstackopen-part3#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
